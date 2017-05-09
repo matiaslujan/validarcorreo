@@ -10,7 +10,7 @@
 
         Label1.Visible = False
 
-        'kcandaldk
+        'asdasdasdasdasdasdasd
     End Sub
 
     Private Sub TextBox1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox1.KeyPress
