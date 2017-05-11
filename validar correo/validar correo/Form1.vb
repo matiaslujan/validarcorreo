@@ -103,7 +103,6 @@
 
         End If
 
-
         Label1.Visible = True
 
         'correo es igual al usuario ingresado en el textbox1 mas el item seleccionado del combo de dominios

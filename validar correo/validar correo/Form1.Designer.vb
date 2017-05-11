@@ -93,11 +93,16 @@ Partial Class Form1
         '
         'ComboBox1
         '
+        Me.ComboBox1.BackColor = System.Drawing.Color.OldLace
+        Me.ComboBox1.CausesValidation = False
+        Me.ComboBox1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"@gmail.com", "@hotmail.com", "@outlook.com", "@yahoo.com", "@live.com"})
-        Me.ComboBox1.Location = New System.Drawing.Point(284, 78)
+        Me.ComboBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.ComboBox1.Items.AddRange(New Object() {"@gmail.com", "@hotmail.com", "@live.com", "@outlook.com", "@yahoo.com"})
+        Me.ComboBox1.Location = New System.Drawing.Point(284, 80)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBox1.Sorted = True
         Me.ComboBox1.TabIndex = 7
         Me.ComboBox1.TabStop = False
         '
