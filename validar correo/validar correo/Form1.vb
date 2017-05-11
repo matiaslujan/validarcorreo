@@ -17,70 +17,14 @@
 
         TextBox2.Text = ""
 
-        'validar entrada de numeros, letras,control, (-), (_), (.), (@)
+        'validar entrada de numeros, letras,control, (-), (_)
 
-        If Not Char.IsNumber(e.KeyChar) And Not Char.IsLetter(e.KeyChar) And Not Char.IsControl(e.KeyChar) And Not e.KeyChar = "_" And Not e.KeyChar = "-" And Not e.KeyChar = "." And Not e.KeyChar = "@" Then
-
-            e.Handled = True
-
-        End If
-
-        'no permitir el ingreso del (.) o el (@) en la primera posicion 
-
-        Dim pos As Integer = TextBox1.SelectionStart
-
-        If pos = 0 And (e.KeyChar = "@" Or e.KeyChar = ".") Then
-
-            TextBox2.Text = ("No se puede ingresar este valor en la primer posicion")
-
-            e.Handled = True
-
-            Exit Sub
-
-        End If
-
-        'validar ingreso de solo un (@)
-
-        If e.KeyChar = "@" And TextBox1.Text.IndexOf("@") > -1 Then
-
-            e.Handled = True
-
-            TextBox2.Text = ("Solo se permite un (@) en la cuenta")
-
-            Exit Sub
-
-        End If
-
-        'ingresar el punto solo en el dominio, despues del (@)
-
-        If e.KeyChar = "." And TextBox1.Text.IndexOf("@") = -1 Then
-
-            TextBox2.Text = "El punto debe ir despues del (@) en el dominio."
+        If Not Char.IsNumber(e.KeyChar) And Not Char.IsLetter(e.KeyChar) And Not Char.IsControl(e.KeyChar) And Not e.KeyChar = "_" And Not e.KeyChar = "-" Then
 
             e.Handled = True
 
         End If
 
-        'si el punto esta al lado del arroba tampoco ingresa
-
-        If e.KeyChar = "." And TextBox1.Text.IndexOf("@") = TextBox1.Text.Length - 1 Then
-
-            e.Handled = True
-
-            TextBox2.Text = "El punto no puede ir aqui"
-
-        End If
-
-        'validar ingreso de solo un (.)
-
-        If e.KeyChar = "." And TextBox1.Text.IndexOf(".") > -1 Then
-
-        
-            e.Handled = True
-
-            TextBox2.Text = ("Solo se permite un (.) en la cuenta")
-
-        End If
 
         'validar ingreso de solo un (-)
 
@@ -123,20 +67,19 @@
 
         End If
 
-        'no ingresar los simbolos (_) o (-) despues del (@)
 
-        If (e.KeyChar = "-" Or e.KeyChar = "_") And TextBox1.Text.IndexOf("@") > 1 Then
-
-            e.Handled = True
-
-            TextBox2.Text = "El simbolo no puede ir aqui"
-
-        End If
     End Sub
+
 
     Private Sub TextBox1_Validated(ByVal sender As Object, ByVal e As System.EventArgs) Handles TextBox1.Validated
 
-        If TextBox1.Text.Length < 1 Then Exit Sub
+        If TextBox1.Text.Length < 1 Then
+
+            TextBox2.Text = "Ingrese correo"
+
+            Exit Sub
+
+        End If
 
         'validar cantidad de caracteres
 
@@ -147,11 +90,12 @@
             Exit Sub
 
         End If
-        'validar que en la ultima posicion no se encuentre un (.) o un (@)
+
+        'validar que en la ultima posicion no se encuentre un (-) o un (_)
 
         Dim ultima As Char = TextBox1.Text.Substring(TextBox1.Text.Length - 1)
 
-        If ultima = "@" Or ultima = "." Then
+        If ultima = "-" Or ultima = "_" Then
 
             TextBox2.Text = ("El caracter (" + CStr(ultima) + " ) no puede en la ultima posicion")
 
@@ -159,31 +103,16 @@
 
         End If
 
-        'validar que contenga el (@) y el (.)
-
-        If TextBox1.Text.IndexOf("@") = -1 And TextBox1.Text.IndexOf(".") Then
-
-            TextBox2.Text = "Debe contener un arroba(@) y un punto (.)"
-
-            Exit Sub
-         
-        End If
-        'si esta el arroba tambien el punto
-
-        If TextBox1.Text.IndexOf(".") = -1 Then
-
-            TextBox2.Text = "El dominio debe contener un punto"
-
-            Exit Sub
-
-        End If
 
         Label1.Visible = True
 
-        TextBox2.Text = TextBox1.Text
+        'correo es igual al usuario ingresado en el textbox1 mas el item seleccionado del combo de dominios
+
+        TextBox2.Text = TextBox1.Text + CStr(ComboBox1.SelectedItem)
 
         TextBox1.Text = ""
 
+        ComboBox1.Text = ""
 
     End Sub
 
