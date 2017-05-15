@@ -35,7 +35,7 @@ Partial Class Form1
         '
         Me.TextBox1.Location = New System.Drawing.Point(12, 80)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(256, 20)
+        Me.TextBox1.Size = New System.Drawing.Size(146, 20)
         Me.TextBox1.TabIndex = 0
         '
         'Button1
@@ -99,9 +99,9 @@ Partial Class Form1
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.ComboBox1.Items.AddRange(New Object() {"@gmail.com", "@hotmail.com", "@live.com", "@outlook.com", "@yahoo.com"})
-        Me.ComboBox1.Location = New System.Drawing.Point(284, 80)
+        Me.ComboBox1.Location = New System.Drawing.Point(164, 79)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBox1.Size = New System.Drawing.Size(111, 21)
         Me.ComboBox1.Sorted = True
         Me.ComboBox1.TabIndex = 7
         Me.ComboBox1.TabStop = False
@@ -110,7 +110,7 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(434, 204)
+        Me.ClientSize = New System.Drawing.Size(293, 204)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.TextBox3)
